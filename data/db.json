@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "eb4c",
+      "email": "icroliveira@gmail.com",
+      "password": "324427Ic18"
+    },
+    {
+      "id": "7c21",
+      "email": "icroliveira3266@gmail.com",
+      "password": "324427Ic18"
+    },
+    {
+      "id": "268f",
+      "email": "teste@teste.com",
+      "password": "123456"
+    }
+  ]
+}
