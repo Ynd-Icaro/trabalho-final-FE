@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import './login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,9 +24,10 @@ const Login = () => {
   };
 
   return (
-  
     <form onSubmit={handleSubmit}>
-      <button> <Link to='/'> Voltar</Link></button>
+      <div className="back-button">
+        <button type="button"> <Link to='/'>Voltar</Link></button>
+      </div>
       <h2>Login</h2>
       <div>
         <label>Email:</label>
