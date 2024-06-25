@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import './login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,20 +13,19 @@ const Login = () => {
       const response = await axios.get(`http://localhost:3000/users?email=${email}&password=${password}`);
       if (response.data.length > 0) {
         alert('Login feito com sucesso');
+        localStorage.setItem('isLoggedIn', true);
         navigate('/menu');
       } else {
-        alert('Credenciais invalidas');
+        alert('Credenciais inválidas');
       }
     } catch (error) {
-      console.error('Erro ao efetuar Login', error);
+      console.error('Erro ao efetuar login', error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="back-button">
-        <button type="button"> <Link to='/'>Voltar</Link></button>
-      </div>
+    <form className='' onSubmit={handleSubmit}>
+      <button className='back-button'><Link to='/'>Voltar</Link></button>
       <h2>Login</h2>
       <div>
         <label>Email:</label>
