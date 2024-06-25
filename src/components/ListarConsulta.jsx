@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ListarConsultas = () => {
   const [consultas, setConsultas] = useState([]);
@@ -11,6 +11,8 @@ const ListarConsultas = () => {
   const [doctorId, setDoctorId] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [Adress, setAdress] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +48,8 @@ const ListarConsultas = () => {
     setDoctorId(consulta.doctorId);
     setDate(consulta.date);
     setTime(consulta.time);
+    setAdress(consulta.Adress);
+
   };
 
   const handleUpdate = async (e) => {
@@ -55,7 +59,8 @@ const ListarConsultas = () => {
         patientId,
         doctorId,
         date,
-        time
+        time,
+        Adress
       });
       setConsultas(consultas.map(c => (c.id === editConsulta.id ? response.data : c)));
       setEditConsulta(null);
@@ -63,6 +68,7 @@ const ListarConsultas = () => {
       setDoctorId('');
       setDate('');
       setTime('');
+      setAdress('');
     } catch (error) {
       console.error('Erro ao atualizar consulta', error);
     }
@@ -82,18 +88,18 @@ const ListarConsultas = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100 w-full">
       <div className="container">
         <div className='flex justify-between items-center mb-6'>
-
         <h1 className="text-3xl font-bold">Consultas</h1>
-            <button onClick={() => Navigate('/cadastrar-consulta')} 
-              className="py-2 px-4 ml-20 bg-green-500 text-white rounded hover:bg-green-600">
-                Cadastrar Nova consulta
-            </button>
+        <button
+            onClick={() => navigate('/cadastrar-consulta')}
+            className="py-2 px-4 ml-20 bg-green-500 text-white rounded hover:bg-green-600">
+            Cadastrar Novo Médico
+          </button>
         </div>
         <ul>
           {consultas.map(consulta => (
               <li key={consulta.id} className="py-2 px-4 border-b flex justify-between items-center">
-              <span>
-                Paciente: {getPatientName(consulta.patientId)}, Médico: {getDoctorName(consulta.doctorId)}, Data: {consulta.date}, Hora: {consulta.time}
+              <span className='p-5'>
+                Paciente: {getPatientName(consulta.patientId)}, Médico: {getDoctorName(consulta.doctorId)}, Data: {consulta.date}, Hora: {consulta.time}, Endereço: {consulta.Adress}
               </span>
               <div>
                 <button
@@ -164,6 +170,16 @@ const ListarConsultas = () => {
                 className="w-full px-4 py-2 border rounded"
                 value={time}
                 onChange={e => setTime(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2">Endereço:</label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 border rounded"
+                value={Adress}
+                onChange={e => setAdress(e.target.value)}
                 required
               />
             </div>

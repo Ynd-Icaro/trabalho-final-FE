@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Registrar';

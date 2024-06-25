@@ -4,6 +4,16 @@
       "id": "c342",
       "email": "user@gmail.com",
       "password": "12345"
+    },
+    {
+      "id": "9165",
+      "email": "giovanni120@gmail.com",
+      "password": "Bolasie#1947"
+    },
+    {
+      "id": "8446",
+      "email": "rodrigo@gmail.com",
+      "password": "12345"
     }
   ],
   "pacientes": [
@@ -12,9 +22,38 @@
       "name": "Icaro",
       "age": "12",
       "address": "123"
+    },
+    {
+      "id": "7115",
+      "name": "Giovanni Meller",
+      "age": "28",
+      "address": "Rua Joao Joao"
+    },
+    {
+      "id": "35ce",
+      "name": "aaaaaaaaaaa",
+      "age": "11",
+      "address": "dsaasd"
     }
   ],
-  "consultas": [],
+  "consultas": [
+    {
+      "patientId": "12ed",
+      "doctorId": "2c53",
+      "date": "2024-07-05",
+      "time": "22:33",
+      "Adress": "Casa do Giovanni",
+      "id": "1122"
+    },
+    {
+      "id": "0bbf",
+      "patientId": "7115",
+      "doctorId": "2c53",
+      "date": "2024-06-28",
+      "time": "23:10",
+      "Adress": "Centro"
+    }
+  ],
   "medicos": [
     {
       "id": "2c53",

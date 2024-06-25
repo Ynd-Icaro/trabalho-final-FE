@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>© 2023 Your Company. All rights reserved.</p>
+      <p>© 2024 UniSatc. Todos direitos reservados para Giovanni Meller e Icaro de Oliveira.</p>
     </footer>
   );
 };

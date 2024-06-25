@@ -61,8 +61,7 @@ const ListarMedicos = () => {
           <h1 className="text-3xl font-bold">Médicos</h1>
           <button
             onClick={() => navigate('/cadastrar-medico')}
-            className="py-2 px-4 ml-20 bg-green-500 text-white rounded hover:bg-green-600"
-          >
+            className="py-2 px-4 ml-20 bg-green-500 text-white rounded hover:bg-green-600">
             Cadastrar Novo Médico
           </button>
         </div>
