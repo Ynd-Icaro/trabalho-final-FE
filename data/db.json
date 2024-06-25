@@ -1,34 +1,24 @@
 {
   "users": [
     {
-      "id": "eb4c",
-      "email": "icroliveira@gmail.com",
-      "password": "324427Ic18"
-    },
+      "id": "c342",
+      "email": "user@gmail.com",
+      "password": "12345"
+    }
+  ],
+  "pacientes": [
     {
-      "id": "7c21",
-      "email": "icroliveira3266@gmail.com",
-      "password": "324427Ic18"
-    },
+      "id": "12ed",
+      "name": "Icaro",
+      "age": "12",
+      "address": "123"
+    }
+  ],
+  "consultas": [],
+  "medicos": [
     {
-      "id": "268f",
-      "email": "teste@teste.com",
-      "password": "123456"
-    },
-    {
-      "id": "2b0d",
-      "email": "giovanni@asodoasd.com",
-      "password": "asgvdsfsad"
-    },
-    {
-      "id": "fdf6",
-      "email": "giovanni@ok23fok",
-      "password": "sfadsadasdas"
-    },
-    {
-      "id": "161b",
-      "email": "giovanni@asodoasd.com",
-      "password": "asdsadsad"
+      "id": "2c53",
+      "name": "JUlian"
     }
   ]
 }

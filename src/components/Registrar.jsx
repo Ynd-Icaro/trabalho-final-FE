@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,24 +11,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get('http://localhost:3000/users', {
-        params: {
-          email: email,
-          password: password
-        }
-      });
-      if (response.data.length > 0) {
-        // Login successful
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('user', JSON.stringify(response.data[0]));
-        navigate('/menu');
+      const response = await axios.post('http://localhost:3000/users', { email, password });
+      if (response.status === 201) {
+        alert('Registro feito com sucesso');
+        navigate('/login');
       } else {
-        // Invalid credentials
-        setError('Credenciais inválidas');
+        setError('Erro ao registrar. Tente novamente.');
       }
     } catch (error) {
-      console.error('Erro ao efetuar login', error);
-      setError('Erro ao efetuar login. Tente novamente mais tarde.');
+      console.error('Erro ao efetuar registro', error);
+      setError('Erro ao efetuar registro. Tente novamente mais tarde.');
     }
   };
 
@@ -36,7 +28,7 @@ const Login = () => {
     <div className='flex items-center justify-center min-h-screen'>
       <form className='bg-white p-8 rounded shadow-md' onSubmit={handleSubmit}>
         <Link to="/" className='link-button'>Voltar para Home</Link>
-        <h2 className='text-3xl font-bold mb-6 text-center'>Login</h2>
+        <h2 className='text-3xl font-bold mb-6 text-center'>Registrar</h2>
         {error && <p className='mb-4 text-red-500'>{error}</p>}
         <div className='mb-4'>
           <label className='block text-sm font-medium mb-2'>Email:</label>
@@ -46,13 +38,13 @@ const Login = () => {
           <label className='block text-sm font-medium mb-2'>Senha:</label>
           <input type="password" className='w-full px-4 py-2 border rounded' value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type="submit" className='w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600'>Login</button>
+        <button type="submit" className='w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600'>Registrar</button>
         <p className='mt-4 text-center'>
-          Não tem uma conta? <Link to="/register" className='text-blue-500 hover:underline'>Registrar</Link>
+          Já tem uma conta? <Link to="/login" className='text-blue-500 hover:underline'>Login</Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
